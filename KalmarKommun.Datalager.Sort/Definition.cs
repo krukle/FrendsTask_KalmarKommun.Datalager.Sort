@@ -1,48 +1,37 @@
 ﻿#pragma warning disable 1591
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace KalmarKommun.Datalager.Sort
 {
     /// <summary>
-    /// Parameters class usually contains parameters that are required.
+    /// Parameters class contains parameters that are required.
     /// </summary>
     public class Parameters
     {
         /// <summary>
-        /// Something that will be repeated.
+        /// The list to sort.
         /// </summary>
         [DisplayFormat(DataFormatString = "Text")]
-        [DefaultValue("Lorem ipsum dolor sit amet.")]
-        public string Message { get; set; }
-    }
-
-    /// <summary>
-    /// Options class provides additional optional parameters.
-    /// </summary>
-    public class Options
-    {
-        /// <summary>
-        /// Number of times input is repeated.
-        /// </summary>
-        [DefaultValue(3)]
-        public int Amount { get; set; }
+        [DefaultValue(null)]
+        public List<Dictionary<string, string>> ListToSort { get; set; }
 
         /// <summary>
-        /// How repeats of the input are separated.
+        /// Key of which value to sort by.
         /// </summary>
         [DisplayFormat(DataFormatString = "Text")]
-        [DefaultValue(" ")]
-        public string Delimiter { get; set; }
+        [DefaultValue("")]
+        public string Key { get; set; }
     }
 
     public class Result
     {
         /// <summary>
-        /// Contains the input repeated the specified number of times.
+        /// Contains SortedList which is ListToSort, sorted by the provided Key.
         /// </summary>
         [DisplayFormat(DataFormatString = "Text")]
-        public string Replication;
+        public List<Dictionary<string, string>> SortedList;
     }
 }

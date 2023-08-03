@@ -1,4 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Microsoft.CSharp; // You can remove this if you don't need dynamic type in .NET Standard frends Tasks
 
@@ -9,31 +13,23 @@ namespace KalmarKommun.Datalager.Sort
     public static class Sort
     {
         /// <summary>
-        /// This is task
-        /// Documentation: https://github.com/CommunityHiQ/KalmarKommun.Datalager.Sort
+        /// Task for sorting a List of Dicitionaries, based on the values of a key from the Dictionaries.
+        /// 
+        /// <br></br>
+        /// 
+        /// Repository: https://github.com/krukle/FrendsTask_KalmarKommun.Datalager.Sort
         /// </summary>
-        /// <param name="input">What to repeat.</param>
-        /// <param name="options">Define if repeated multiple times. </param>
+        /// <param name="input">The List to sort, and which key's values to sort by</param>
         /// <param name="cancellationToken"></param>
-        /// <returns>{string Replication} </returns>
-        public static Result SortByParsedInt(Parameters input, [PropertyTab] Options options, CancellationToken cancellationToken)
+        /// <returns>The sorted list.</returns>
+        public static Result SortAscendingByParsedIntThenDescendingByText(Parameters input, CancellationToken cancellationToken)
         {
-            var repeats = new string[options.Amount];
-
-            for (var i = 0; i < options.Amount; i++)
-            {
-                // It is good to check the cancellation token somewhere you spend lot of time, e.g. in loops.
-                cancellationToken.ThrowIfCancellationRequested();
-
-                repeats[i] = input.Message;
-            }
-
-            var output = new Result
-            {
-                Replication = string.Join(options.Delimiter, repeats)
+            return new Result {
+                SortedList = input.ListToSort
+                    .OrderBy(x => Int32.Parse(Regex.Match(x[input.Key], @"\d+").Value))
+                    .ThenByDescending(x => x[input.Key])
+                    .ToList()
             };
-
-            return output;
         }
     }
 }
