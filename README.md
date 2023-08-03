@@ -70,4 +70,3 @@ When contributing to this repository, please first discuss the change you wish t
 5. Submit a Pull request so that we can review your changes
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
-
