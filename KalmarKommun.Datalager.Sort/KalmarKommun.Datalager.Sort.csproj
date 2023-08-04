@@ -5,11 +5,11 @@
     <authors>chei100</authors>
     <copyright>chei100</copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/CommunityHiQ/KalmarKommun.Datalager.Sort</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/krukle/FrendsTask_KalmarKommun.Datalager.Sort/</PackageProjectUrl>
     <IncludeSource>true</IncludeSource>
     <PackageTags>Frends</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>0.0.1</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
