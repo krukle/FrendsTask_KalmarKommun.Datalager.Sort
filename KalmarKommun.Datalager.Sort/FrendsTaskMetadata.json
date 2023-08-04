@@ -1,7 +1,7 @@
 ﻿{
 	"Tasks": [
 		{
-			"TaskMethod": "KalmarKommun.Datalager.Sort.Sort.SortByParsedInt"
+			"TaskMethod": "KalmarKommun.Datalager.Sort.Sort.SortAscendingByParsedIntThenDescendingByText"
 		}
 	]
 }

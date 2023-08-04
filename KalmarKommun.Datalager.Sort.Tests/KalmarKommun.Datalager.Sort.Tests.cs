@@ -1,5 +1,6 @@
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
-using System;
+using System.Collections.Generic;
 
 namespace KalmarKommun.Datalager.Sort.Tests
 {
@@ -7,25 +8,54 @@ namespace KalmarKommun.Datalager.Sort.Tests
     class TestClass
     {
         /// <summary>
-        /// You need to run KalmarKommun.Datalager.Sort.SetPaswordsEnv.ps1 before running unit test, or some other way set environment variables e.g. with GitHub Secrets.
+        /// Tests class SortAscendingByParsedIntThenDescendingByText. 
         /// </summary>
         [Test]
-        public void ThreeSorts()
+        public void TestSortAscendingByParsedIntThenDescendingByText()
         {
+
             var input = new Parameters
             {
-                Message = Environment.GetEnvironmentVariable("EXAMPLE_ENVIROMENT_VARIABLE")
-        };
-
-            var options = new Options
-            {
-                Amount = 3,
-                Delimiter = ", "
+                ListToSort = JArray.FromObject(
+                    new List<Dictionary<string, string>>{
+                        new Dictionary<string, string> {
+                            { "season", "autum-2023" },
+                            { "month", "october" }
+                        },
+                        new Dictionary<string, string> {
+                            { "season", "spring-2022" }
+                        },
+                        new Dictionary<string, string> {
+                            { "season", "autum-2022" },
+                            { "month", "november" }
+                        },
+                        new Dictionary<string, string> {
+                            { "season", "spring-2023" }
+                        }
+                    }
+                ),
+                Key = JToken.FromObject("season")
             };
 
-            var ret = Sort.SortByParsedInt(input, options, new System.Threading.CancellationToken());
+            var ret = Sort.SortAscendingByParsedIntThenDescendingByText(input, new System.Threading.CancellationToken());
 
-            Assert.That(ret.Replication, Is.EqualTo("foobar, foobar, foobar"));
+            Assert.That(ret.SortedList, Is.EqualTo(JArray.FromObject(
+                new List<Dictionary<string, string>> {
+                    new Dictionary<string, string> {
+                        { "season", "spring-2022" }
+                    },
+                    new Dictionary<string, string> {
+                        { "season", "autum-2022" },
+                        { "month", "november" }
+                    },
+                    new Dictionary<string, string> {
+                        { "season", "spring-2023" }
+                    },
+                    new Dictionary<string, string> {
+                        { "season", "autum-2023" },
+                        { "month", "october" }
+                    }
+                })));
         }
     }
 }
