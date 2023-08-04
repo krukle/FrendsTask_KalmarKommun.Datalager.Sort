@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System.Collections.Generic;
 
@@ -16,31 +15,11 @@ namespace KalmarKommun.Datalager.Sort.Tests
 
             var input = new Parameters
             {
-                ListToSort = JArray.FromObject(
-                    new List<Dictionary<string, string>>{
-                        new Dictionary<string, string> {
-                            { "season", "autum-2023" },
-                            { "month", "october" }
-                        },
-                        new Dictionary<string, string> {
-                            { "season", "spring-2022" }
-                        },
-                        new Dictionary<string, string> {
-                            { "season", "autum-2022" },
-                            { "month", "november" }
-                        },
-                        new Dictionary<string, string> {
-                            { "season", "spring-2023" }
-                        }
-                    }
-                ),
-                Key = JToken.FromObject("season")
-            };
-
-            var ret = Sort.SortAscendingByParsedIntThenDescendingByText(input, new System.Threading.CancellationToken());
-
-            Assert.That(ret.SortedList, Is.EqualTo(JArray.FromObject(
-                new List<Dictionary<string, string>> {
+                ListToSort = new List<Dictionary<string, string>> {
+                    new Dictionary<string, string> {
+                        { "season", "autum-2023" },
+                        { "month", "october" }
+                    },
                     new Dictionary<string, string> {
                         { "season", "spring-2022" }
                     },
@@ -50,12 +29,29 @@ namespace KalmarKommun.Datalager.Sort.Tests
                     },
                     new Dictionary<string, string> {
                         { "season", "spring-2023" }
-                    },
-                    new Dictionary<string, string> {
-                        { "season", "autum-2023" },
-                        { "month", "october" }
                     }
-                })));
+                },
+                Key = "season"
+            };
+
+            var ret = Sort.SortAscendingByParsedIntThenDescendingByText(input, new System.Threading.CancellationToken());
+
+            Assert.That(ret.SortedList, Is.EqualTo(new List<Dictionary<string, string>> {
+                new Dictionary<string, string> {
+                    { "season", "spring-2022" }
+                },
+                new Dictionary<string, string> {
+                    { "season", "autum-2022" },
+                    { "month", "november" }
+                },
+                new Dictionary<string, string> {
+                    { "season", "spring-2023" }
+                },
+                new Dictionary<string, string> {
+                    { "season", "autum-2023" },
+                    { "month", "october" }
+                }
+            }));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿#pragma warning disable 1591
 
-using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,14 +16,14 @@ namespace KalmarKommun.Datalager.Sort
         /// </summary>
         [DisplayFormat(DataFormatString = "Expression")]
         [DefaultValue(null)]
-        public JArray ListToSort { get; set; }
+        public List<Dictionary<string, string>> ListToSort { get; set; }
 
         /// <summary>
         /// Key of which value in dictionaries to sort list by.
         /// </summary>
         [DisplayFormat(DataFormatString = "Text")]
         [DefaultValue("")]
-        public JToken Key { get; set; }
+        public string Key { get; set; }
     }
 
     public class Result
@@ -32,6 +32,6 @@ namespace KalmarKommun.Datalager.Sort
         /// Contains SortedList which is ListToSort, sorted by the provided Key.
         /// </summary>
         [DisplayFormat(DataFormatString = "Expression")]
-        public JArray SortedList;
+        public List<Dictionary<string, string>> SortedList;
     }
 }

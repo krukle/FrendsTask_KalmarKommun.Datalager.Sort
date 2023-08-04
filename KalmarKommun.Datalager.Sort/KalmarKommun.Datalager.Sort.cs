@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -23,10 +22,10 @@ namespace KalmarKommun.Datalager.Sort
         {
             return new Result
             {
-                SortedList = JArray.FromObject(input.ListToSort
+                SortedList = input.ListToSort
                     .OrderBy(x => Int32.Parse(Regex.Match(x[input.Key.ToString()].ToString(), @"\d+").Value))
                     .ThenByDescending(x => x[input.Key.ToString()])
-                    .ToList())
+                    .ToList()
             };
         }
     }
