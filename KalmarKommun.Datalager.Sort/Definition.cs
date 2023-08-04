@@ -25,13 +25,4 @@ namespace KalmarKommun.Datalager.Sort
         [DefaultValue("")]
         public string Key { get; set; }
     }
-
-    public class Result
-    {
-        /// <summary>
-        /// Contains SortedList which is ListToSort, sorted by the provided Key.
-        /// </summary>
-        [DisplayFormat(DataFormatString = "Expression")]
-        public List<Dictionary<string, string>> SortedList;
-    }
 }
