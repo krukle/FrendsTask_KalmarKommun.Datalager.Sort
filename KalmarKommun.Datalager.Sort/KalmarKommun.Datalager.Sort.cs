@@ -16,7 +16,7 @@ namespace KalmarKommun.Datalager.Sort
         /// </summary>
         /// <param name="input">The List to sort, and which key's values to sort by</param>
         /// <param name="cancellationToken"></param>
-        /// <returns> List<Dictionary<string, string>> </returns>
+        /// <returns> List [ Dictionary { string, string } ] </returns>
         public static List<Dictionary<string, string>> SortAscendingByParsedIntThenDescendingByText(Parameters input, CancellationToken cancellationToken)
         {
             return input.ListToSort
