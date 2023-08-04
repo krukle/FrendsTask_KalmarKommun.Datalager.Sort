@@ -1,21 +1,19 @@
 # FrendsTask_KalmarKommun.Datalager.Sort
 
-frends Community Task for Sort
+Frends task for sorting
 
-[![Actions Status](https://github.com/krukle/FrendsTask_KalmarKommun.Datalager.Sort/workflows/PackAndPushAfterMerge/badge.svg)](https://github.com/krukle/FrendsTask_KalmarKommun.Datalager.Sort/actions) ![MyGet](https://img.shields.io/myget/frends-community/v/FrendsTask_KalmarKommun.Datalager.Sort) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![Actions Status](https://github.com/krukle/FrendsTask_KalmarKommun.Datalager.Sort/workflows/PackAndPushAfterMerge/badge.svg)](https://github.com/krukle/FrendsTask_KalmarKommun.Datalager.Sort/actions) [![MyGet](https://img.shields.io/myget/frendstasks-kalmarkommun/v/KalmarKommun.Datalager.Sort)](https://www.myget.org/feed/frendstasks-kalmarkommun/package/nuget/KalmarKommun.Datalager.Sort) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 - [Installing](#installing)
 - [Tasks](#tasks)
      - [Sort](#Sort)
 - [Building](#building)
 - [Contributing](#contributing)
-- [Change Log](#change-log)
 
 # Installing
 
 You can install the Task via frends UI Task View or you can find the NuGet package from the following NuGet feed
-https://www.myget.org/F/frends-community/api/v3/index.json and in Gallery view in MyGet https://www.myget.org/feed/frends-community/package/nuget/FrendsTask_KalmarKommun.Datalager.Sort
-
+https://www.myget.org/F/frendstasks-kalmarkommun/api/v3/index.json and in Gallery view in MyGet https://www.myget.org/feed/frendstasks-kalmarkommun/package/nuget/KalmarKommun.Datalager.Sort
 # Tasks
 
 ## Sort
