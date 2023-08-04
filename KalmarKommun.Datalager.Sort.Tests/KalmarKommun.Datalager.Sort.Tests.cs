@@ -34,9 +34,9 @@ namespace KalmarKommun.Datalager.Sort.Tests
                 Key = "season"
             };
 
-            var ret = Sort.SortAscendingByParsedIntThenDescendingByText(input, new System.Threading.CancellationToken());
+            var SortedList = Sort.SortAscendingByParsedIntThenDescendingByText(input, new System.Threading.CancellationToken());
 
-            Assert.That(ret.SortedList, Is.EqualTo(new List<Dictionary<string, string>> {
+            Assert.That(SortedList, Is.EqualTo(new List<Dictionary<string, string>> {
                 new Dictionary<string, string> {
                     { "season", "spring-2022" }
                 },
