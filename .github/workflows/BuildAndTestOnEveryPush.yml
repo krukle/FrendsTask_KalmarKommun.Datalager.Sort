@@ -24,5 +24,3 @@ jobs:
     - name: Pack release version of task
       run: dotnet pack --configuration Release --include-source
       
-    - name: Push NuGet package to the testfeed
-      run: dotnet nuget push KalmarKommun.Datalager.Sort\bin\Release\KalmarKommun.Datalager.Sort.*.nupkg  --api-key ${{ secrets.COMMUNITY_FEED_API_KEY }} --source https://www.myget.org/F/frendstasks-kalmarkommun/api/v2/package -sk ${{ secrets.COMMUNITY_FEED_API_KEY }} --symbol-source https://www.myget.org/F/frendstasks-kalmarkommun/symbols/api/v2/package
