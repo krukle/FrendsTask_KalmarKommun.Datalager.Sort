@@ -23,8 +23,8 @@ namespace KalmarKommun.Datalager.Sort
             return new Result
             {
                 SortedList = input.ListToSort
-                    .OrderBy(x => Int32.Parse(Regex.Match(x[input.Key.ToString()].ToString(), @"\d+").Value))
-                    .ThenByDescending(x => x[input.Key.ToString()])
+                    .OrderBy(x => Int32.Parse(Regex.Match(x[input.Key], @"\d+").Value))
+                    .ThenByDescending(x => x[input.Key])
                     .ToList()
             };
         }
